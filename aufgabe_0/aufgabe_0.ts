@@ -5,4 +5,3 @@ function Textfeld() {
                         }
                         }
 
-//Funktioniert nur mit einer richtigen Verlinkung auf JS
