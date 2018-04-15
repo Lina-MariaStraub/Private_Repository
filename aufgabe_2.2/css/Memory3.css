@@ -1,0 +1,109 @@
+/*
+Aufgabe: Nr.2.2
+Name: Lina-Maria Straub
+Matrikel: 257767
+Datum: 15.04.2018
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Dieser Code wurde in Gruppenarbeit und mit Hilfe von Melvin Busch erstellt
+*/
+
+
+/* Stylesheet */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 18px;
+  background: #8ef084;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Spielinfo */
+#player-info {
+  height: 100vh;
+  width: 22%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #80ff9f;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.8);
+}
+#player-info h2 {
+  margin-bottom: 50px;
+}
+#player-info div {
+  margin-bottom: 40px;
+  text-align: center;
+}
+#player-info div span {
+  display: block;
+}
+#player-info .player-name {
+  font-weight: bold;
+  color: #ff8080;
+}
+
+/* Spielbrett */
+#card-field {
+  height: auto;
+  max-width: 78%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-left: 20%;
+}
+#card-field h2 {
+  color: white;
+}
+#card-div {
+  position: relative;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  perspective: 1500;
+}
+.card {
+  height: 175px;
+  width: 175px;
+  border-radius: 5px;
+  margin: 0px 20px 20px 0px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 175px;
+  position: relative;
+  background: white;
+  transition: all 1s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: auto;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #808080;
+  border-radius: 5px;
+  transition: all 1s ease;
+  transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+}
+.hidden {
+  transform: rotateY(180deg);
+}
+.taken {
+  transform: scale(0);
+}
