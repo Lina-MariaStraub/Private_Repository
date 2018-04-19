@@ -26,16 +26,31 @@ namespace memorie {
         let spieler_eingabe: string = prompt("Spieleranzahl zwischen 1 und 4 Spielern wählen");
         let spieler: number = parseInt(spieler_eingabe);
 
-        return spieler;
+              if (spieler >= 1 && spieler  <= 4) {
+            return spieler ;
+        }
+        else {
+            alert("nur eine Zahl zwischen 1 und 4");
+            spieler_eingang();
+        }
     }
+    
 
     /*Anzahl der Karten anzeigen und auswählen lassen bevor das Spiel beginnt*/
     function kartenanzahl_eingang(): number {
         let kartenpaaranzahl_eingabe: string = prompt("Kartenpaaranzahl zwischen 5 und 10 wählen");
         let kartenpaaranzahl: number = parseInt(kartenpaaranzahl_eingabe);
 
-        return kartenpaaranzahl;
+            if (kartenpaaranzahl >= 5 && kartenpaaranzahl <= 10) {
+            return kartenpaaranzahl;
+        }
+        else {
+            alert("nur eine Zahl zwischen 5 und 10");
+            kartenanzahl_eingang();
+        }
     }
+    
+    
 
     let spieler: number = spieler_eingang();
     let anzahl: number = kartenanzahl_eingang();

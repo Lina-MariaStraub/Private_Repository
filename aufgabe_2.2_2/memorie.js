@@ -22,13 +22,25 @@ var memorie;
     function spieler_eingang() {
         var spieler_eingabe = prompt("Spieleranzahl zwischen 1 und 4 Spielern w�hlen");
         var spieler = parseInt(spieler_eingabe);
-        return spieler;
+        if (spieler >= 1 && spieler <= 4) {
+            return spieler;
+        }
+        else {
+            alert("nur eine Zahl zwischen 1 und 4");
+            spieler_eingang();
+        }
     }
     /*Anzahl der Karten anzeigen und ausw�hlen lassen bevor das Spiel beginnt*/
     function kartenanzahl_eingang() {
         var kartenpaaranzahl_eingabe = prompt("Kartenpaaranzahl zwischen 5 und 10 w�hlen");
         var kartenpaaranzahl = parseInt(kartenpaaranzahl_eingabe);
-        return kartenpaaranzahl;
+        if (kartenpaaranzahl >= 5 && kartenpaaranzahl <= 10) {
+            return kartenpaaranzahl;
+        }
+        else {
+            alert("nur eine Zahl zwischen 5 und 10");
+            kartenanzahl_eingang();
+        }
     }
     var spieler = spieler_eingang();
     var anzahl = kartenanzahl_eingang();
