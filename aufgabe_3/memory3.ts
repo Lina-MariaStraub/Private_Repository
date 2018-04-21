@@ -8,42 +8,44 @@ Datum: 19.04.2018
 
 */
 
-/*hier alle karten inhalte (Array) und die dazu gehörigen zustände mit leerem Array */
+/*hier alle karten inhalte (Array) und die dazu gehÃ¶rigen zustÃ¤nde mit leerem Array */
 namespace memorie {
     let karten_inhalt: string[] = ["Reh", "Maus", "Hund", "Ele", "Eule", "Igel", "Wal", "Tiger", "Laus", "Ente"];
     let karten_offen: string[] = [] /*das Array hier leer da karten_zustand hier dann sichtbar machen*/
     let karten_zustand: string[] = ["verdeckt", "genommen", "sichtbar"];
 
 
-    /*neue Variablen für die Karten, welche dann immer eine eigene ID haben
-    2 IDs da ja auch 2 Karten für insgesamt einen Spielzug, um deren Inhalt dann zu vergleichen
+    /*neue Variablen fÃ¼r die Karten, welche dann immer eine eigene ID haben
+    2 IDs da ja auch 2 Karten fÃ¼r insgesamt einen Spielzug, um deren Inhalt dann zu vergleichen
     any (um selbst typ auszusuchen)*/
 
+    Die Benennung verstÃ¶ÃŸt gegen unseren Coding Style. Mit Kleinbuchstaben beginnen z.B. idKarte1
     let ID_karte1: any;
     let ID_karte2: any;
-
-    /*neue Variablen für die Klassen der karten*/
+    Die Auszeichnung mit "any" vermeiden wir in diesem Kurs, Compiler und/oder Linter sollten darauf aufmerksam machen
+    
+    /*neue Variablen fÃ¼r die Klassen der karten*/
 
     let Class_karte1: any;
     let Class_karte2: any;
+    obiges gilt auch hier
 
 
-
-    /* variable Conter, der zählt wie viele Karten offen sind*/
+    /* variable Conter, der zÃ¤hlt wie viele Karten offen sind*/
 
     let zaehler_counter: number = 0;
 
-    //neue Arrays für die erziehlte Punktezahl der Spieler später abzuspeichern
+    //neue Arrays fÃ¼r die erziehlte Punktezahl der Spieler spÃ¤ter abzuspeichern
 
     let spieler_eingabe: string[] = []; //welche Variablenbezeichnung??????
 
     let punkteanzahl: number[] = [0, 0, 0, 0,] //Punktestand vorinstalliert auf 0.
 
 
-    //Neue Funktion für das Event
+    //Neue Funktion fÃ¼r das Event
 
     window.addEventListener("click", init);
-
+    "init" ist sicher nicht der passende Name fÃ¼r diese Funktion 
     function init(_event: Event): void {
 
         let target: HTMLDivElement = <HTMLDivElement>_event.target;
@@ -68,11 +70,13 @@ namespace memorie {
 
 
 
-            //Timerfunktion, wie lange es dauert bis sich die Karten wieder umdrehen und die verschiednen Fälle
+            //Timerfunktion, wie lange es dauert bis sich die Karten wieder umdrehen und die verschiednen FÃ¤lle
             //setTimeout ist ein fester begriff
+            
+            wir sollten im Kurs keine anonymen Funktionen nutzen. Bitte so machen, wie in der Vorlesung gezeigt
             setTimeout(function() {
 
-
+                hier werden die Namen der CSS-Klassen der angeklickten Karten verglichen, nicht die Inhalte. Sinnvoll?
                 if (Class_karte1 == Class_karte2) {
                     document.getElementById(ID_karte1).classList.remove("sichtbar");
                     document.getElementById(ID_karte2).classList.remove("sichtbar");
@@ -88,9 +92,9 @@ namespace memorie {
 
                     document.getElementById(ID_karte1).classList.add("verdeckt");
                     document.getElementById(ID_karte2).classList.add("verdeckt");
-
-
                 }
+                Es wird also auf jeden Fall die Klasse "sichtbar" entfernt, daher sollten die Anweisungen hierzu nicht in der Fallunterscheidung auftauchen
+                Es ist auÃŸerdem wenig elegant achtmal getElementById zu schreiben...
 
             }, 2000);
 
@@ -102,12 +106,12 @@ namespace memorie {
 
     /* HAUPTPROGRAMM*/
 
-    /*Anzahl der Spieler anzeigen und auswählen lassen bevor das Spiel beginnt
+    /*Anzahl der Spieler anzeigen und auswÃ¤hlen lassen bevor das Spiel beginnt
         Promt ist ein Dialogfenster mit Eingabefunktion
         Die parseInt Funktion konvertiert das erste Argument zu einem String, 
-        analysiert diesen und gibt eine ganze Zahl zurück*/
+        analysiert diesen und gibt eine ganze Zahl zurÃ¼ck*/
     function spieler_eingang(): number {
-        let spieler_eingabe: string = prompt("Spieleranzahl zwischen 1 und 4 Spielern wählen");
+        let spieler_eingabe: string = prompt("Spieleranzahl zwischen 1 und 4 Spielern wÃ¤hlen");
         let spieler: number = parseInt(spieler_eingabe);
 
         if (spieler >= 1 && spieler <= 4) {
@@ -119,9 +123,9 @@ namespace memorie {
         }
     }
 
-    /*Anzahl der Karten anzeigen und auswählen lassen bevor das Spiel beginnt*/
+    /*Anzahl der Karten anzeigen und auswÃ¤hlen lassen bevor das Spiel beginnt*/
     function kartenanzahl_eingang(): number {
-        let kartenpaaranzahl_eingabe: string = prompt("Kartenpaaranzahl zwischen 5 und 10 wählen");
+        let kartenpaaranzahl_eingabe: string = prompt("Kartenpaaranzahl zwischen 5 und 10 wÃ¤hlen");
         let kartenpaaranzahl: number = parseInt(kartenpaaranzahl_eingabe);
 
         if (kartenpaaranzahl >= 5 && kartenpaaranzahl <= 10) {
@@ -149,12 +153,12 @@ namespace memorie {
         }
     }
 
-    /* Spielerübersicht   */
+    /* SpielerÃ¼bersicht   */
     function spieler_erstellen(_spieler: number): void {
         let node: any = document.getElementById("spielerbereich");
         let childNodeHTML: string;
 
-        for (let z: number = 1; z <= _spieler; z++) { /*_spieler greift bis auf das Eingabefeld vom Spieler zurück*/
+        for (let z: number = 1; z <= _spieler; z++) { /*_spieler greift bis auf das Eingabefeld vom Spieler zurÃ¼ck*/
 
             childNodeHTML = "<div class='spielerbereich" + z + "'>";
             childNodeHTML += "Spieler " + z; /*Spieler z = Spieler1 Spieler2 Spieler3 Spieler4*/
@@ -177,7 +181,7 @@ namespace memorie {
             let max: number = (karten_offen.length * 2);
 
             let gemischt: number = Math.floor(Math.random() * karten_offen.length); /*Math-floor: Rundet eine Zahl auf eine ganze Zahl ab.*/
-            /*Math.random: Gibt eine Pseudozufallszahl zwischen 0 und 1 zurück.*/
+            /*Math.random: Gibt eine Pseudozufallszahl zwischen 0 und 1 zurÃ¼ck.*/
 
             childNodeHTML = "<div class='karte" + zustand_zufall() + "' id='Karte" + n + "'>"; /*um CSS anzuwenden mit n hier die kartenzahl Karte0, Karte1...*/
             childNodeHTML += karten_offen[gemischt];
@@ -202,7 +206,7 @@ namespace memorie {
 
     }
 
-
+    Diese Hauptfunktion sollte ganz oben als erste Funktion auftauchen, direkt unter den Deklarationen der globalen Variablen
     function memorie_komplett(): void { /*void..irgendetwas*/
 
         kartenanzahl_doppelt(anzahl);
@@ -211,10 +215,11 @@ namespace memorie {
 
         spieler_erstellen(spieler);
     }
-
+    
+    Diese Zeile sollte ganz oben direkt nach der Namespace-Definition erscheinen. Dann weiÃŸ man, wie das Programm startet
     window.addEventListener("load", memorie_komplett);
     /*listener
-        Das Objekt, welches eine Benachrichtigung erhält
-        Das load Ereignis wird ausgelöst, sobald eine Ressource 
-        und die von ihr abhängigen Ressourcen das Laden beendet haben.*/
+        Das Objekt, welches eine Benachrichtigung erhÃ¤lt
+        Das load Ereignis wird ausgelÃ¶st, sobald eine Ressource 
+        und die von ihr abhÃ¤ngigen Ressourcen das Laden beendet haben.*/
 }
