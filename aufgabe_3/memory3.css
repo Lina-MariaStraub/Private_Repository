@@ -1,0 +1,67 @@
+/*body*/
+#memorie{
+	background-color: #acf2c2;
+}
+
+
+/* Spieler linke Bildschirmseite*/
+#spielerbereich {
+	background-color: #acf2c2;
+	color: black;
+	border: 2px solid white;
+	float: left;
+	width: 10%;
+	text-align: center;
+	font-family: arial;
+	height: 100%;
+}
+
+/* Komplettes Spielbrett auf dem Karten liegen */
+#spielbrett{margin-left: 15%;}
+
+/* Überschriften */
+h2 {
+	text-align: center;
+	font-family: arial;
+	margin-bottom: 1em;
+	font-size: 2em;
+}
+
+
+/* Verschiedene Kartenzustände */
+.karteverdeckt{
+	background-color: #000040;
+	color:  #000040;
+	float: left;
+	height: 4em;
+	width: 4em;
+	margin: 1em;
+	text-align: center;
+	padding: 3em;
+	
+}
+
+.kartegenommen {
+	background-color: #ffffff;
+	color: #ffffff;
+	border: black;
+	float: left;
+	height: 4em;
+	width: 4em;
+	margin: 1em;
+	text-align: center;
+	padding: 3em;
+	
+}
+
+.kartesichtbar{
+	background-color: #0000ff;
+	color: #ffffff;
+	float: left;
+	height: 4em;
+	width: 4em;
+	margin: 1em;
+	text-align: center;
+	padding: 3em;
+	
+}
