@@ -2,63 +2,79 @@
 Aufgabe: Nr.3
 Name: Lina-Maria Straub
 Matrikel: 257767
-Datum: 19.04.2018
+Datum: 22.04.2018
 
---------------------------------------------------------------------------------------.
+Der TS Code von Aufgabe 2 orientiert sich gr��tenteils an dem von Marco Bohn. Er wurde
+interpretiert und verstanden
 
 */
 /*hier alle karten inhalte (Array) und die dazu geh�rigen zust�nde mit leerem Array */
 var memorie;
 (function (memorie) {
+    window.addEventListener("load", memorie_komplett); //evtl auch kein window 
+    /*listener
+        Das Objekt, welches eine Benachrichtigung erh�lt
+        Das load Ereignis wird ausgel�st, sobald eine Ressource
+        und die von ihr abh�ngigen Ressourcen das Laden beendet haben.*/
     var karten_inhalt = ["Reh", "Maus", "Hund", "Ele", "Eule", "Igel", "Wal", "Tiger", "Laus", "Ente"];
     var karten_offen = []; /*das Array hier leer da karten_zustand hier dann sichtbar machen*/
     var karten_zustand = ["verdeckt", "genommen", "sichtbar"];
     /*neue Variablen f�r die Karten, welche dann immer eine eigene ID haben
     2 IDs da ja auch 2 Karten f�r insgesamt einen Spielzug, um deren Inhalt dann zu vergleichen
     any (um selbst typ auszusuchen)*/
-    var ID_karte1;
-    var ID_karte2;
+    //KEIN ANY!
+    var idKarte1;
+    var idKarte2;
     /*neue Variablen f�r die Klassen der karten*/
-    var Class_karte1;
-    var Class_karte2;
+    var classKarte1;
+    var classKarte2;
     /* variable Conter, der z�hlt wie viele Karten offen sind*/
     var zaehler_counter = 0;
     //neue Arrays f�r die erziehlte Punktezahl der Spieler sp�ter abzuspeichern
-    var spieler_eingabe = []; //welche Variablenbezeichnung??????
+    var spieler_eingabe = []; //welche Variablenbezeichnung????
     var punkteanzahl = [0, 0, 0, 0,]; //Punktestand vorinstalliert auf 0.
+    function memorie_komplett() {
+        kartenanzahl_doppelt(anzahl);
+        karten_erstellen(anzahl);
+        spieler_erstellen(spieler);
+    }
     //Neue Funktion f�r das Event
-    window.addEventListener("click", init);
-    function init(_event) {
+    window.addEventListener("click", eventfunct);
+    function eventfunct(_event) {
         var target = _event.target;
         console.log(_event);
         if (zaehler_counter == 0) {
             document.getElementById(target.id).classList.remove("verdeckt");
-            Class_karte1 = target.className;
-            ID_karte1 = target.id;
+            classKarte1 = target.className;
+            idKarte1 = target.id;
             document.getElementById(target.id).classList.add("sichtbar");
             zaehler_counter++;
         }
         else if (zaehler_counter == 1) {
             document.getElementById(target.id).classList.remove("verdeckt");
-            Class_karte2 = target.className;
-            ID_karte2 = target.id;
+            classKarte2 = target.className;
+            idKarte2 = target.id;
             document.getElementById(target.id).classList.add("sichtbar");
             console.log(zaehler_counter);
             //Timerfunktion, wie lange es dauert bis sich die Karten wieder umdrehen und die verschiednen F�lle
             //setTimeout ist ein fester begriff
+            //Keine ANONYMEN Funktionen!!! VL anschauen
             setTimeout(function () {
-                if (Class_karte1 == Class_karte2) {
-                    document.getElementById(ID_karte1).classList.remove("sichtbar");
-                    document.getElementById(ID_karte2).classList.remove("sichtbar");
-                    document.getElementById(ID_karte1).classList.add("genommen");
-                    document.getElementById(ID_karte2).classList.add("genommen");
+                // hier werden die Namen der CSS-Klassen der angeklickten Karten verglichen, nicht die Inhalte. Sinnvoll?
+                if (classKarte1 == classKarte2) {
+                    document.getElementById(idKarte1).classList.remove("sichtbar");
+                    document.getElementById(idKarte2).classList.remove("sichtbar");
+                    document.getElementById(idKarte1).classList.add("genommen");
+                    document.getElementById(idKarte2).classList.add("genommen");
                 }
                 else {
-                    document.getElementById(ID_karte1).classList.remove("sichtbar");
-                    document.getElementById(ID_karte2).classList.remove("sichtbar");
-                    document.getElementById(ID_karte1).classList.add("verdeckt");
-                    document.getElementById(ID_karte2).classList.add("verdeckt");
+                    document.getElementById(idKarte1).classList.remove("sichtbar");
+                    document.getElementById(idKarte2).classList.remove("sichtbar");
+                    document.getElementById(idKarte1).classList.add("verdeckt");
+                    document.getElementById(idKarte2).classList.add("verdeckt");
                 }
+                /*Verbessern aber wie..:Es wird also auf jeden Fall die Klasse "sichtbar" entfernt, daher sollten die Anweisungen hierzu nicht in der Fallunterscheidung auftauchen
+               Es ist au�erdem wenig elegant achtmal getElementById zu schreiben...*/
             }, 2000);
             zaehler_counter = 0;
         }
@@ -137,11 +153,5 @@ var memorie;
     function zustand_zufall() {
         return "verdeckt";
     }
-    function memorie_komplett() {
-        kartenanzahl_doppelt(anzahl);
-        karten_erstellen(anzahl);
-        spieler_erstellen(spieler);
-    }
-    window.addEventListener("load", memorie_komplett);
 })(memorie || (memorie = {}));
 //# sourceMappingURL=memory3.js.map

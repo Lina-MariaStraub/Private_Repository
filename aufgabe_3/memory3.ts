@@ -2,14 +2,22 @@
 Aufgabe: Nr.3
 Name: Lina-Maria Straub
 Matrikel: 257767
-Datum: 19.04.2018
+Datum: 22.04.2018
 
---------------------------------------------------------------------------------------.
+Der TS Code von Aufgabe 2 orientiert sich größtenteils an dem von Marco Bohn. Er wurde 
+interpretiert und verstanden
 
 */
 
 /*hier alle karten inhalte (Array) und die dazu gehörigen zustände mit leerem Array */
 namespace memorie {
+    window.addEventListener("load", memorie_komplett);  //evtl auch kein window 
+            
+    /*listener
+        Das Objekt, welches eine Benachrichtigung erhält
+        Das load Ereignis wird ausgelöst, sobald eine Ressource 
+        und die von ihr abhängigen Ressourcen das Laden beendet haben.*/
+    
     let karten_inhalt: string[] = ["Reh", "Maus", "Hund", "Ele", "Eule", "Igel", "Wal", "Tiger", "Laus", "Ente"];
     let karten_offen: string[] = [] /*das Array hier leer da karten_zustand hier dann sichtbar machen*/
     let karten_zustand: string[] = ["verdeckt", "genommen", "sichtbar"];
@@ -18,16 +26,16 @@ namespace memorie {
     /*neue Variablen für die Karten, welche dann immer eine eigene ID haben
     2 IDs da ja auch 2 Karten für insgesamt einen Spielzug, um deren Inhalt dann zu vergleichen
     any (um selbst typ auszusuchen)*/
+    
+    //KEIN ANY!
 
-    let ID_karte1: any;
-    let ID_karte2: any;
+    let idKarte1: string;
+    let idKarte2: string; 
 
     /*neue Variablen für die Klassen der karten*/
 
-    let Class_karte1: any;
-    let Class_karte2: any;
-
-
+    let classKarte1: string;
+    let classKarte2: string;
 
     /* variable Conter, der zählt wie viele Karten offen sind*/
 
@@ -35,16 +43,27 @@ namespace memorie {
 
     //neue Arrays für die erziehlte Punktezahl der Spieler später abzuspeichern
 
-    let spieler_eingabe: string[] = []; //welche Variablenbezeichnung??????
+    let spieler_eingabe: string[] = []; //welche Variablenbezeichnung????
 
     let punkteanzahl: number[] = [0, 0, 0, 0,] //Punktestand vorinstalliert auf 0.
 
+    
+    function memorie_komplett(): void { /*void..irgendetwas*/
 
+        kartenanzahl_doppelt(anzahl);
+
+        karten_erstellen(anzahl);
+
+        spieler_erstellen(spieler);
+    }
+    
+
+  
     //Neue Funktion für das Event
 
-    window.addEventListener("click", init);
+window.addEventListener("click", eventfunct);
 
-    function init(_event: Event): void {
+    function eventfunct(_event: Event): void {
 
         let target: HTMLDivElement = <HTMLDivElement>_event.target;
 
@@ -53,44 +72,47 @@ namespace memorie {
         if (zaehler_counter == 0) {
 
             document.getElementById(target.id).classList.remove("verdeckt");
-            Class_karte1 = target.className;
-            ID_karte1 = target.id;
+            classKarte1 = target.className;
+            idKarte1 = target.id;
             document.getElementById(target.id).classList.add("sichtbar");
 
             zaehler_counter++;
 
         } else if (zaehler_counter == 1) {
             document.getElementById(target.id).classList.remove("verdeckt");
-            Class_karte2 = target.className;
-            ID_karte2 = target.id;
+            classKarte2 = target.className;
+            idKarte2 = target.id;
             document.getElementById(target.id).classList.add("sichtbar");
             console.log(zaehler_counter);
 
-
-
             //Timerfunktion, wie lange es dauert bis sich die Karten wieder umdrehen und die verschiednen Fälle
             //setTimeout ist ein fester begriff
-            setTimeout(function() {
+            
+            //Keine ANONYMEN Funktionen!!! VL anschauen
+           setTimeout(function() {
+
+// hier werden die Namen der CSS-Klassen der angeklickten Karten verglichen, nicht die Inhalte. Sinnvoll?
+                if (classKarte1 == classKarte2) {
+                    document.getElementById(idKarte1).classList.remove("sichtbar");
+                    document.getElementById(idKarte2).classList.remove("sichtbar");
 
 
-                if (Class_karte1 == Class_karte2) {
-                    document.getElementById(ID_karte1).classList.remove("sichtbar");
-                    document.getElementById(ID_karte2).classList.remove("sichtbar");
-
-
-                    document.getElementById(ID_karte1).classList.add("genommen");
-                    document.getElementById(ID_karte2).classList.add("genommen");
+                    document.getElementById(idKarte1).classList.add("genommen");
+                    document.getElementById(idKarte2).classList.add("genommen");
 
                 } else {
-                    document.getElementById(ID_karte1).classList.remove("sichtbar");
-                    document.getElementById(ID_karte2).classList.remove("sichtbar");
+                    document.getElementById(idKarte1).classList.remove("sichtbar");
+                    document.getElementById(idKarte2).classList.remove("sichtbar");
 
 
-                    document.getElementById(ID_karte1).classList.add("verdeckt");
-                    document.getElementById(ID_karte2).classList.add("verdeckt");
+                    document.getElementById(idKarte1).classList.add("verdeckt");
+                    document.getElementById(idKarte2).classList.add("verdeckt");
 
 
                 }
+                
+                /*Verbessern aber wie..:Es wird also auf jeden Fall die Klasse "sichtbar" entfernt, daher sollten die Anweisungen hierzu nicht in der Fallunterscheidung auftauchen
+               Es ist außerdem wenig elegant achtmal getElementById zu schreiben...*/
 
             }, 2000);
 
@@ -189,11 +211,8 @@ namespace memorie {
             let entfernen = karten_offen.splice(gemischt, 1);
 
             n++;
-
         }
-
     }
-
 
     /*Zustand der Karten festlegen wie oben im namespace & karten_zustand genannt */
     function zustand_zufall(): string {
@@ -201,20 +220,4 @@ namespace memorie {
         return "verdeckt";
 
     }
-
-
-    function memorie_komplett(): void { /*void..irgendetwas*/
-
-        kartenanzahl_doppelt(anzahl);
-
-        karten_erstellen(anzahl);
-
-        spieler_erstellen(spieler);
-    }
-
-    window.addEventListener("load", memorie_komplett);
-    /*listener
-        Das Objekt, welches eine Benachrichtigung erhält
-        Das load Ereignis wird ausgelöst, sobald eine Ressource 
-        und die von ihr abhängigen Ressourcen das Laden beendet haben.*/
 }
