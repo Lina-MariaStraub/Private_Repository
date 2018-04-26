@@ -1,4 +1,4 @@
-/*Aufgabe: (Aufgabe 3)
+/*Aufgabe: (Aufgabe 4)
         Name: Lina-Maria Straub
         Matrikel: (257767)
         
@@ -38,11 +38,9 @@ namespace Memory_3 {
 
     function init( _event: Event ): void {
         let target: HTMLDivElement = <HTMLDivElement>_event.target;
-//target ist kein div aber ich weise ihm ein Div zu (<HTMLDivElement>)
+
         console.log( _event );//Konsolenausgabe
 
-        
-        //man kommt mit counter 0 an, klickt und hat 1/ counter oben auf 0 gesetzt
         if ( target.classList.contains( "verdeckt" ) && nehmeKlicksAn ) {//Klasse 'verdeckt' (diese Karten) und Klick auf die muss angenommen werden
                                                                          //nehmeKlicksAn true wenn 'verdeckte' Karte
 
@@ -271,7 +269,7 @@ namespace Memory_3 {
 
         spielfeldErzeugen();//Spielbrett erzeugen (Funktion spielfeldErzeugen hier ausgeführt)
 
-        spielerInfo();//Spielerinfo erzeugen  (Funktion spielerInfo hier ausgeführt)
+         spielerInfo();//Spielerinfo erzeugen  (Funktion spielerInfo hier ausgeführt)
     }
 
     document.addEventListener( "DOMContentLoaded", main );//AddEventListener-Main() wird ausgeführt sobald DOM vollständig geladen ist

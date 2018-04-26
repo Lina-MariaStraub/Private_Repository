@@ -4,5 +4,4 @@ function Textfeld() {
         document.getElementById("Hallo").innerHTML = "Hey" + " " + name + "! Viel Spaß hier";
     }
 }
-
 //# sourceMappingURL=aufgabe_0.js.map

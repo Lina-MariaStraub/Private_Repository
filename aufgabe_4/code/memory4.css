@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Barlow");
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: "Barlow",sans-serif; 
+	font-size: 20px ;
+}
+
+#Spielfeld {
+	height: auto;
+	width: auto;
+	padding: 10px;
+	background-color: #b6cbfb;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+
+#Spielfeld h2 {
+	color: white;
+	text-align: center;
+	front-size: 30px;
+	text-align: center;
+	width: 10%;
+	margin-left:40%;
+}
+
+#Spielfeld > div{
+	position: relative;
+	margin: 5%;
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;	
+}
+
+#Spielfeld div > div {
+	height: 144px;
+	width: 144px;
+	line-height: 144px;
+	margin: 0px 20px 20px 0px;
+	text-align: center;
+	line-height: 70px;
+	position: relative;
+	font-family: "Barlow",sans-serif; 	
+	font-size: 100%;
+	cursor: pointer;
+}
+
+
+/*Spielinfo/ Footer*/
+
+#Spielerinfo{
+	background-color: white;
+	height: auto;
+	width: 100%;
+	margin-left:65px
+}
+
+/#Spielerinfo div > div {
+	width: auto;
+	float: left;
+	font-family: "Barlow",sans-serif; 
+}
+
+.verdeckt {
+	background-color: #0e3ca5;
+	text-indent: -99999px;
+}
+
+.genommen {
+	transform: scale(0); /*damit die karte 'verschwindet' bei gleichen paaren*/
+}
+/*.visible{
+	background-color: white;
+  	pointer-events: auto;
+	
+}*/
+

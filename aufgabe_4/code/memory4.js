@@ -1,4 +1,4 @@
-/*Aufgabe: (Aufgabe 3)
+/*Aufgabe: (Aufgabe 4)
         Name: Lina-Maria Straub
         Matrikel: (257767)
         
@@ -23,9 +23,7 @@ var Memory_3;
     //-----------------------------------------------------------------------------Funktion erstellen f�r das Event und Counter f�rs z�hlen, wie viele Karten offen sind
     function init(_event) {
         var target = _event.target;
-        //target ist kein div aber ich weise ihm ein Div zu (<HTMLDivElement>)
         console.log(_event); //Konsolenausgabe
-        //man kommt mit counter 0 an, klickt und hat 1/ counter oben auf 0 gesetzt
         if (target.classList.contains("verdeckt") && nehmeKlicksAn) {
             //nehmeKlicksAn true wenn 'verdeckte' Karte
             if (counter < 2) {
@@ -173,4 +171,4 @@ var Memory_3;
     }
     document.addEventListener("DOMContentLoaded", main); //AddEventListener-Main() wird ausgef�hrt sobald DOM vollst�ndig geladen ist
 })(Memory_3 || (Memory_3 = {}));
-//# sourceMappingURL=memory3.js.map
+//# sourceMappingURL=memory4.js.map
