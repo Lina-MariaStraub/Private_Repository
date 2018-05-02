@@ -1,0 +1,73 @@
+<!--Aufgabe: (Aufgabe 4 Studi)
+		Name: Lina-Maria Straub
+		Matrikel: (257767)
+		
+		Datum: (03.05.2018)
+		Hiermit versichere ich, dass ich diesen
+		Code selbst geschrieben habe. Er wurde
+		nicht kopiert und auch nicht diktiert.-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DatabaseClient</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="DatabaseClient.css" type="text/css"
+	media="screen" />
+<script src="Interfaces.js" type="text/javascript" charset="utf-8"></script>
+<script src="ProcessForm.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+	<fieldset id="input"><!-- hier Eingabefeld für Studenten -->
+		
+		<legend> Studentendaten hier eingeben </legend><!--Überschrift Eingabefeld-->
+		
+		<input type="text" name="name" placeholder="Nachname"/><!--Nachname-->
+		
+		<input type="text" name="firstname" placeholder="Vorname"/><!--Vorname-->
+		
+		<input type="text" name="matrikel" placeholder="Matrikelnummer"/><!--Matrikelnummer-->
+		
+		<input type="number" name="age" placeholder="Alter" min="1" max="120"/><!--Alter Student 1-120-->
+		
+		<input type="radio" name="gender" value="male" id="male"/><!--Radiobutton: männlich/weiblich-->
+		<label for="male">Männlich</label>
+		<input type="radio" name="gender" value="female" id="female"/>
+		<label for="female">Weiblich</label>
+		
+		<select name="studiengang" id="select"> <!--Studiengang-->
+			<option value="MKB">MKB</option>
+			<option value="OMB">OMB</option>
+			<option value="MIB">MIB</option>
+		</select>
+
+		<button type="button" id="einsetzen">In Datenbank einfügen</button><!--Speichert eingegebene Information-->
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// --> 
+	<fieldset id="output">													<!--Fieldset 1-->
+		<legend> Alle Studentendaten </legend><!--Überschrift-->
+		
+		<button type="button" id="aktualisieren">aktualisieren</button><!-- aktualisieren und eingetragene Daten erscheinen-->
+		
+		<textarea rows="20" cols="90"> </textarea><!--Textfeld 1-->
+		
+	</fieldset>
+	
+		</fieldset>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->	
+	<fieldset id="findStudents">  											<!--Fieldset 2-->
+	
+	<legend> Suche nach Student </legend><!--Überschrift-->
+
+		<input type="text" name="find" placeholder="Matrikelnummer"/><!--Matrikelnummer, die oben eingegeben wurde kann hier eingetragen werden-->
+	
+		<button type="button" id="find">Suche</button><!--Eingetragene Matrikelnummer wird auf Bestehen überprüft. Wenn sie vorhanden ist, dann wird der Student wieder ausgegeben-->
+	
+		<textarea id="outputMatrikel" rows="20" cols="90"> </textarea><!--Textfeld 2-->
+		
+	</fieldset>
+	
+</body>
+
+</html>
