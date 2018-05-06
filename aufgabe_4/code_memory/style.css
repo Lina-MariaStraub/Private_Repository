@@ -1,0 +1,108 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*Grundeinstellungen, einstellungs-Div über SpielerAnzahl, Kartensatz etc*/
+ #grundeinstellungen {
+	display: block;
+    background-color: #c1ffff;
+    padding: 1em;
+    width: 100%;
+    margin: auto;/*damit mittig*/
+
+}
+
+/*Überschirft "Memory"*/
+#grundeinstellungen h2 {
+    color: black;
+    font-size:40px;
+    padding-bottom: 0.3em;
+}
+
+#button{
+	color:white;
+	background-color:blue;
+	padding: 1em;
+	font-size:20px;
+}
+
+/*Zwischenüberschriften, Anzahl der Spieler etc*/
+#grundeinstellungen h3 {	
+    color: #000080;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+/*Inhalt Schriftgröße*/
+body{
+	font-size: 15px ;
+}
+
+/*Spielfeld mit überschrift/ Rändern etc*/
+#Spielfeld {
+	height: auto;
+	width: auto;
+	padding: 10px;
+	background-color: #c1ffff;
+	
+}
+
+/*überschrift welche im ts erzeugt wurde*/
+#Spielfeld h2 {
+	color: #000080;
+	front-size: 20px;
+	text-align: center;
+}
+
+/*Spielfeld Feld*/
+#Spielfeld > div{
+	position: relative;
+	margin: 5%;
+	height: auto;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;	
+}
+
+#Spielfeld div > div {
+	height: 144px;
+	width: 144px;
+	line-height: 144px;
+	margin: 0px 20px 20px 0px;
+	text-align: center;
+	line-height: 70px;
+	position: relative;
+	font-family: "Barlow",sans-serif; 	
+	font-size: 100%;
+	cursor: pointer;
+}
+
+/*Unten, Spielerinfo Namen mit Punkten*/
+#Spielerinfo{
+	background-color: white;
+	height: auto;
+	width: 100%;
+}
+
+#Spielerinfo div > div {
+	height: 50px;
+	width: auto;
+	margin: 5px 5px 0px 25px;
+	float: left;
+}
+
+/*Wie karten aussehen in ts, hier aber für verdeckt etc wichtig*/
+.verdeckt {
+	text-indent: -99999px;
+}
+
+.genommen {
+	background-color: red;
+	transform: scale(0);
+}
+.sichtbar{
+	background-color: white;
+  	pointer-events: auto;
+}
+

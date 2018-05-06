@@ -1,0 +1,80 @@
+<!--Aufgabe: (Aufgabe 4)
+		Name: Lina-Maria Straub
+		Matrikel: (257767)
+		
+		Datum: (06.05.2018)
+		Dieser Code enspricht zum Großteil dem Code von Lisa Jähn. Er wurde interpretiert, kommentiert, umgeschrieben und verstanden-->
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Aufgabe 4</title>
+    <script src="kartensatz.js"></script>
+    <script src="spieler.js"></script>
+    <script src="memory4.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="grundeinstellungen">
+
+    <h2>Memory</h2>
+<!-- //////////////////////////////////////////////////////////////////////////////////SPIELERANZAHL//////////////////////////////////////////////////////////////// -->
+    <div id="spieleranzahl">
+        <h3>Anzahl der Spieler</h3>
+        
+        <input type="radio" name="radio" value="1" id="1" checked onclick="memory_4.spielerAnzahlBearbeiten(this)"/>	<!-- spielerAnzahlBearbeiten ist funktion -->
+        <label for="1">1 Spieler</label>																						<!-- welche ausgeführt wird bei klick auf Radiobutton -->
+        <input type="radio" name="radio" value="2" id="2" onclick="memory_4.spielerAnzahlBearbeiten(this)"/>			<!-- als Parameter wird gedrückte Button übergeben -->
+        <label for="2">2 Spieler</label>																						<!-- checked bei 1, das mind 1 Spieler vorgegeben ist -->
+        <input type="radio" name="radio" value="3" id="3" onclick="memory_4.spielerAnzahlBearbeiten(this)"/>			<!-- This= Das momentane Html Element-->
+        <label for="3">3 Spieler</label>
+        <input type="radio" name="radio" value="4" id="4" onclick="memory_4.spielerAnzahlBearbeiten(this)"/>			
+        <label for="4">4 Spieler</label>
+    </div>
+<!-- //////////////////////////////////////////////////////////////////////////////////SPIELERNAMEN//////////////////////////////////////////////////////////////////////////////////// -->
+    <div id="name">
+        <h3>Name der Spieler</h3>
+        
+        <h4 id="player1-label">Spieler 1</h4>													<!-- Mind 1 Spielername erforderlich da oben checked-->
+        <input id="player1" type="text" name="Text" placeholder="Name" value="" required />		<!-- Als Startwert haben alle bis auf Spieler 1 einen durchsichtigen Text und einen deaktivierten Input-->
+        <h4 id="player2-label" style="opacity: 0.33;">Spieler 2</h4>
+        <input id="player2" type="text" name="Text" placeholder="Name" value="" disabled/>
+        <h4 id="player3-label" style="opacity: 0.33;">Spieler 3</h4>
+        <input id="player3" type="text" name="Text" placeholder="Name" value="" disabled/>
+        <h4 id="player4-label" style="opacity: 0.33;">Spieler 4</h4>
+        <input id="player4" type="text" name="Text" placeholder="Name" value="" disabled/>
+    </div>
+<!-- Wenn Radiobutton geklickt, dann wird Funktion kartenSatzbearbeiten ausgeführt. Als Parameter wird der gedrückte Button übergeben-->
+<!-- //////////////////////////////////////////////////////////////////////////////////KARTENSATZ//////////////////////////////////////////////////////////////////////////////////// -->
+    <div id="kartensatz">
+        <h3>Kartensatz</h3>
+        <input type="radio" name="Radiogroup" value="zahlen" id="radio5" checked onclick="memory_4.kartenSatzbearbeiten(this)"/>
+        <label for="radio5">Zahlen</label>
+        <input type="radio" name="Radiogroup" value="buchstaben" id="radio6" onclick="memory_4.kartenSatzbearbeiten(this)"/>
+        <label for="radio6">Buchstaben</label>
+        <input type="radio" name="Radiogroup" value="Farben" id="radio7" onclick="memory_4.kartenSatzbearbeiten(this)"/>
+        <label for="radio7">Farben</label><!-- This.value = Nur der Wert(Value) wird übergeben-->
+    </div>
+<!-- //////////////////////////////////////////////////////////////////////////////////Kartenanzahl//////////////////////////////////////////////////////////////////////////////////// -->
+    <div id="anzahl">
+        <h3>Anzahl der Kartenpaare</h3>
+        <input id="kartenpaare" type="range" name="Stepper" step="1" min="5" max="10" value="5" oninput="memory_4.onInputEvent(this.value)"/>
+        <label for="kartenpaare" id="kartenpaare-label">5</label>
+    </div>
+ <!-- //////////////////////////////////////////////////////////////////////////////////SPIELSTART BUTTON/////////////////////////////////////////////////////////////////////////////// -->   
+    <div id="spielstart">
+        <button id="button" onclick="memory_4.main()">Spielstart</button>
+    </div>
+
+</div>
+
+<div id="Spielbrett">
+    <div id="Spielfeld"></div>
+    <div id="Spielerinfo"></div>
+</div>
+
+</body>
+</html>
