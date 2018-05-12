@@ -14,16 +14,16 @@
 <body>
 <h2>Fragen</h2>
 <p>1.Was beschreibt das Interface AssocStringString und wozu kann es verwendet werden?</p>
-<p>Interface legt Struktur fest und dabei wird ein string als Schlüssel festgelegt und schließlich als Wert einen string ausgegeben. Er kann dazu verwendet werden, um über einen Schlüssel einfach auf das gewünschte Objekt zugreifen zu können. Meist um homogenes assoziatives Array (AssocStringString).</p>
+<p>Das Interface ist ein ()homogenes) assoziatives Array. Diesem wird ein "key" als Schlüssel vom Typ string mitgegeben. Der Wert, welcher zurückgegeben wird ist ein string.</p>
 <p>2.Was geschieht in Zeile 9 und was ist das Ergebnis?</p>
-<p>Variable „Port“ wird festgelegt. Dieser ist dafür da, damit Sever weiss auf welchen Port er achten muss. Man setzt ihn auf eine Zahl, damit er nicht undefiniert ist und der Browser auf die Applikation zugreifen kann</p>
+<p>Hier wird eine Umgebunsvariable festgelegt. Die Variable port wird als number definiert. Dadurch kann Server wissen, auf welchen Port er hören muss. wenn die Variable undefinded ist dann wird dem Interface der Wert Port zugewiesen. In Zeile 10/11 wird die Variable Port dann auf die Nummer 8100 gesetzt </p>
 <p>3.Was geschieht in Zeile 25 von ServerTest.js?</p>
- <p> let query: AssocStringString = Url.parse(_request.url, true).query</p>
-<p>in Datentyp AssocStringString wird neue Variable definiert. Dieser wird Url.parse(_request.url, true).query zugewiesen. Dabei wird ein Url string in url Objekt umgewandelt durch url.parse. query wird ein neues Objekt von AssocStringString, wenn url.parse richtig ist. Und durch query wird dann auf den query Teil der url zugegriffen</p>
+<p> let query: AssocStringString = Url.parse(_request.url, true).query</p>
+<p>Variable query vom Typ AssocStringString erwartet einen Schlüssel als string. Wenn true das Ergebnis dann wird query zu einem neuen Object (von AssocStringString)</p>
 <p>4.Wie arbeitet die for-in Schleife in Zeile 29?</p>
 <p>For-in-Schleife durchläuft das Objekt bzw. die Eigenschaften der Variablen query. Nicht beachtet werden Teile des Arrays, welche nicht den Schlüssel key enthalten.</p>
 <p>5.Was bewirkt die Header-Information Acces-Control-Allow-Origin?</p>
-<p>Ist ein Mechanismus der dem Browser ein Cross.Origin-Request ermöglicht und eine Kommunikation des Browsers erlaubt.</p>
+<p>Ist ein Mechanismus der dem Browser ein CORs ermöglicht und eine Kommunikation des Browsers erlaubt. ACAO bestimmt die Freigabeeinstellung, wodurch die Inhalte zugänglich gemacht werden</p>
 
 
 </body>
