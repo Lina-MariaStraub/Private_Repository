@@ -26,7 +26,7 @@ var L06_Interfaces;
         searchButton.addEventListener("click", search);
         exampleButton.addEventListener("click", exampleData);
     }
-    //Drei Datensatzbeispiele
+    //Datensatzbeispiele hier 3
     function exampleData() {
         for (var i = 0; i < 3; i++) {
             //Zugriff auf Interface
@@ -62,10 +62,8 @@ var L06_Interfaces;
         console.log(studi["age"]);
         L06_Interfaces.studiHomoAssoc[matrikel] = studi; // Datensatz im assoziativen Array unter der Matrikelnummer speichern
         L06_Interfaces.studiSimpleArray.push(studi); // nur um das auch noch zu zeigen...
-        //Funktion sendDataToHost, Objekt studi wird �bergeben
-        //Methode addStudent
-        sendDataToHost("addStudent", studi);
-    }
+        sendDataToHost("addStudent", studi); //Funktion sendDataToHost, Objekt studi wird �bergeben
+    } //Methode addStudent
     //Serverfunktion refreshStudents wird ausgef�hrt
     //Funktion refreshStudents holt sich die Liste der ganzen Daten vom Server
     //Methode refreshStudents
@@ -91,9 +89,8 @@ var L06_Interfaces;
         console.log(L06_Interfaces.studiHomoAssoc);
         console.groupEnd();
     }
-    //Funktion, um Studenten nach Matrikelnummer zu suchen
-    //Funktion search aufstellen
     function search(_event) {
+        //Funktion search aufstellen
         //Auf erste Textarea zugreifen
         var output = document.getElementsByTagName("textarea")[0];
         output.value = "";
