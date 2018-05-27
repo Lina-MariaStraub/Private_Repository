@@ -14,14 +14,14 @@ var L06_Interfaces;
     var address = "https://eia2node257767.herokuapp.com/";
     function init(_event) {
         console.log("Init");
-        //Enventlistener auf Button �bergeben
+        //auf Button ein Eventlistener
         var insertButton = document.getElementById("insert");
         var searchButton = document.getElementById("search");
         var refreshButton = document.getElementById("refresh");
-        //Button f�r drei Bespieldatens�tze 
+        //auf button BeispielDatens�tze
         var exampleButton = document.getElementById("exampleData");
         insertButton.addEventListener("click", insert);
-        //Wenn geklickt wird f�hre refreshStudents aus  
+        //bei klick auf Button refresh ausf�hren 
         refreshButton.addEventListener("click", refreshStudents);
         searchButton.addEventListener("click", search);
         exampleButton.addEventListener("click", exampleData);
@@ -38,17 +38,15 @@ var L06_Interfaces;
                 gender: !!Math.round(Math.random()),
                 studiengang: "OMB"
             };
-            //Funktion sendDataToHost, Variable student wird �bergeben
-            sendDataToHost("addStudent", student);
+            //Funktion sendDataToHost
+            sendDataToHost("addStudent", student); //Variable student wird �bergeben
         }
     }
-    //Funktion um Daten der Studenten zu speichern
     function insert(_event) {
         var inputs = document.getElementsByTagName("input");
         var genderButton = document.getElementById("male");
         var matrikel = inputs[2].value;
         var studi;
-        //Interface �bergeben
         studi = {
             name: inputs[0].value,
             firstname: inputs[1].value,
@@ -61,11 +59,11 @@ var L06_Interfaces;
         console.log(studi.age);
         console.log(studi["age"]);
         L06_Interfaces.studiHomoAssoc[matrikel] = studi; // Datensatz im assoziativen Array unter der Matrikelnummer speichern
-        L06_Interfaces.studiSimpleArray.push(studi); // nur um das auch noch zu zeigen...
-        sendDataToHost("addStudent", studi); //Funktion sendDataToHost, Objekt studi wird �bergeben
+        L06_Interfaces.studiSimpleArray.push(studi);
+        sendDataToHost("addStudent", studi); //Objekt studi wird �bergeben, Funktion sendDataToHost
     } //Methode addStudent
-    //Serverfunktion refreshStudents wird ausgef�hrt
-    //Funktion refreshStudents holt sich die Liste der ganzen Daten vom Server
+    //Serverfunktion refreshStudents ausf�hren
+    //Funktion refreshStudents holt sich Liste der Daten vom Server
     //Methode refreshStudents
     function refreshStudents(_event) {
         sendDataToHost("refreshStudents");
@@ -95,11 +93,9 @@ var L06_Interfaces;
         var output = document.getElementsByTagName("textarea")[0];
         output.value = "";
         var inputs = document.getElementsByTagName("input"); //Zugriff auf Inputs
-        var matrikel = inputs[6].value; //Matrikel wird aufgerufen durch den 6. Input
-        //Matrikelnummer wird gespeichert
-        var studi = L06_Interfaces.studiHomoAssoc[matrikel];
+        var matrikel = inputs[6].value; //nach 6 Input wird matrikel aufgerufen
+        var studi = L06_Interfaces.studiHomoAssoc[matrikel]; //Matrikelnummer wird gespeichert
         if (studi) {
-            //�bereinstimmung mit Student
             var line = matrikel + ": ";
             line += studi.name + ", " + studi.firstname + ", " + studi.age + " Jahre ";
             line += studi.gender ? ", (M)" : ", (F)";
