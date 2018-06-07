@@ -139,21 +139,56 @@ namespace L06_Interfaces {
         //Neue Http Request wird geöffnet
         xhr.open("GET", address + method + "?method=" + method + "&data=" + encodeURIComponent(dataString), true);
         
-        if (method == "addStudent") {//Überprüfen welche Methode ausgeführt werden soll
-            
-            xhr.onload = function () { //Sobald eine Antwort ankommt schreibe die Antwort in die Konsole
-                console.log(xhr.responseText)
+         if ( method == "addStudent" ) {
+
+            //Sobald eine Antwort ankommt schreibe die Antwort in die Konsole
+            xhr.onload = function() {
+                console.log( xhr.responseText )
             }
         }
-        else if (method == "refreshStudents") {
-            xhr.onload = function () {
-                
-                console.log('Refreshing Students...');//Sobald eine Antwort ankommt ersetze studiHomoAssoc mit der Antwort und führe die Methode refresh aus
-                
-                studiHomoAssoc = JSON.parse(xhr.responseText);//Überschreibe studiHomoAssoc mit der Antwort
+
+        //Methode refreshStudents
+        else if ( method == "refreshStudents" ) {
+            xhr.onload = function() {
+
+                //Sobald eine Antwort ankommt ersetze studiHomoAssoc mit der Antwort und führe die Methode refresh aus
+                console.log( 'Refreshing Students...' );
+
+                //Überschreibe studiHomoAssoc mit der Antwort
+                studiHomoAssoc = JSON.parse( xhr.responseText );
                 refresh();
             }
         }
-        xhr.send();  //Sende Request zum Server
+
+        else if ( method == "searchStudent" ) {
+
+            //Onload wird erst ausgeführt wenn es eine Antwort bekommt
+            xhr.onload = function() {
+                // Wenn undefined zurückgegeben wird, gebe Meldung aus
+                if (xhr.responseText == "undefined") {
+                    alert( "Es wurde kein Student gefunden, bitte versuchen sie es noch einmal." );
+                    return;
+                }
+                    
+                // Student Rückgabe String wird zum Objekt umgewandelt
+                let student = JSON.parse(xhr.responseText);
+
+                //Auf erste Textarea zugreifen
+                let output: HTMLTextAreaElement = document.getElementsByTagName( "textarea" )[0];
+
+                output.value = "";
+                
+                //Übereinstimmung mit Student
+                let line: string = data + ": ";
+                line += student.name + ", " + student.firstname + ", " + student.age + " Jahre ";
+                line += student.gender ? ", (M)" : ", (F)";
+                line += student.studiengang + ": ";
+                output.value += line + "\n";
+                
+            }
+        }
+
+        //Sende Request zum Server
+        xhr.send();
     }
 }

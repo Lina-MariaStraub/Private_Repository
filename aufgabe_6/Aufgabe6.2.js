@@ -118,18 +118,43 @@ var L06_Interfaces;
         //Neue Http Request wird ge�ffnet
         xhr.open("GET", address + method + "?method=" + method + "&data=" + encodeURIComponent(dataString), true);
         if (method == "addStudent") {
+            //Sobald eine Antwort ankommt schreibe die Antwort in die Konsole
             xhr.onload = function () {
                 console.log(xhr.responseText);
             };
         }
         else if (method == "refreshStudents") {
             xhr.onload = function () {
-                console.log('Refreshing Students...'); //Sobald eine Antwort ankommt ersetze studiHomoAssoc mit der Antwort und f�hre die Methode refresh aus
-                L06_Interfaces.studiHomoAssoc = JSON.parse(xhr.responseText); //�berschreibe studiHomoAssoc mit der Antwort
+                //Sobald eine Antwort ankommt ersetze studiHomoAssoc mit der Antwort und f�hre die Methode refresh aus
+                console.log('Refreshing Students...');
+                //�berschreibe studiHomoAssoc mit der Antwort
+                L06_Interfaces.studiHomoAssoc = JSON.parse(xhr.responseText);
                 refresh();
             };
         }
-        xhr.send(); //Sende Request zum Server
+        else if (method == "searchStudent") {
+            //Onload wird erst ausgef�hrt wenn es eine Antwort bekommt
+            xhr.onload = function () {
+                // Wenn undefined zur�ckgegeben wird, gebe Meldung aus
+                if (xhr.responseText == "undefined") {
+                    alert("Es wurde kein Student gefunden, bitte versuchen sie es noch einmal.");
+                    return;
+                }
+                // Student R�ckgabe String wird zum Objekt umgewandelt
+                var student = JSON.parse(xhr.responseText);
+                //Auf erste Textarea zugreifen
+                var output = document.getElementsByTagName("textarea")[0];
+                output.value = "";
+                //�bereinstimmung mit Student
+                var line = data + ": ";
+                line += student.name + ", " + student.firstname + ", " + student.age + " Jahre ";
+                line += student.gender ? ", (M)" : ", (F)";
+                line += student.studiengang + ": ";
+                output.value += line + "\n";
+            };
+        }
+        //Sende Request zum Server
+        xhr.send();
     }
 })(L06_Interfaces || (L06_Interfaces = {}));
 //# sourceMappingURL=Aufgabe6.2.js.map
