@@ -9,7 +9,7 @@ namespace L09_Canvas {
             this.x += 0; //auf der x achse keine bewegung
             this.y += -2; //deswegen steigen sie nach oben
         }
-        drawBubble(): void {
+        zeichneLuftblasenWeiss(): void {
             ctx.beginPath();
             crc2.fillStyle = "rgb(255,255,255)";
             ctx.arc( this.x, this.y, this.radius, 0, 2 * Math.PI );

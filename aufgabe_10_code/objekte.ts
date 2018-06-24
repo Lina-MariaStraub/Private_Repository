@@ -1,7 +1,7 @@
 namespace L09_Canvas {
     export class objekte { //Alle Aufrufe hier..an welchen Platz sie sollen
         public paint(): void {
-            this.Background( 260 );//Wasser und sand
+            this.WasserSand( 260 );//Wasser und sand
             this.Stein(-190, 450);//Stein links mittig
             this.Kiste(259, 410, 70, 30);//Kiste rechts mittig
             this.Deckel(260, 410);//DeckelSchatztruhe mittig
@@ -27,7 +27,7 @@ namespace L09_Canvas {
             crc2.fill();
         }
 //----WASSER UND SAND-------------------------------------------------------------------------
-        Background( _sandHeight: number ): void {
+        WasserSand( _sandHeight: number ): void {
             crc2.fillStyle = "rgb(135,  206, 235 )";
             crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height );
 

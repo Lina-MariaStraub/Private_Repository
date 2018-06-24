@@ -66,9 +66,9 @@ var L09_Canvas;
         for (var i = 0; i < fishes.length; i++)
             fishes[i].draw();
         for (var i = 0; i < bubbles.length; i++)
-            bubbles[i].drawBubble();
+            bubbles[i].zeichneLuftblasenWeiss();
         for (var i = 0; i < bubblesRandom.length; i++)
-            bubblesRandom[i].drawBubblesRandom();
+            bubblesRandom[i].zeichneLuftblasenBlau();
     }
 })(L09_Canvas || (L09_Canvas = {}));
 //# sourceMappingURL=animation.js.map

@@ -9,7 +9,7 @@ namespace L09_Canvas {
             this.x += Math.random() * 4 -4;
             this.y += Math.random() * 4 -4;
         }
-        drawBubblesRandom(): void {
+        zeichneLuftblasenBlau(): void {
             ctx.beginPath();
             crc2.fillStyle = "rgb(51, 76, 170)"; //dunkelblau
             ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);

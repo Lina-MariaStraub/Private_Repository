@@ -4,7 +4,7 @@ var L09_Canvas;
         function objekte() {
         }
         objekte.prototype.paint = function () {
-            this.Background(260); //Wasser und sand
+            this.WasserSand(260); //Wasser und sand
             this.Stein(-190, 450); //Stein links mittig
             this.Kiste(259, 410, 70, 30); //Kiste rechts mittig
             this.Deckel(260, 410); //DeckelSchatztruhe mittig
@@ -30,7 +30,7 @@ var L09_Canvas;
             L09_Canvas.crc2.fill();
         };
         //----WASSER UND SAND-------------------------------------------------------------------------
-        objekte.prototype.Background = function (_sandHeight) {
+        objekte.prototype.WasserSand = function (_sandHeight) {
             L09_Canvas.crc2.fillStyle = "rgb(135,  206, 235 )";
             L09_Canvas.crc2.fillRect(0, 0, L09_Canvas.crc2.canvas.width, L09_Canvas.crc2.canvas.height);
             L09_Canvas.crc2.fillStyle = "rgb(255, 228, 196)";

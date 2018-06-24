@@ -68,9 +68,9 @@ namespace L09_Canvas {
             fishes[i].draw();
 
         for ( let i: number = 0; i < bubbles.length; i++ )
-            bubbles[i].drawBubble();
+            bubbles[i].zeichneLuftblasenWeiss();
 
         for ( let i: number = 0; i < bubblesRandom.length; i++ )
-            bubblesRandom[i].drawBubblesRandom();
+            bubblesRandom[i].zeichneLuftblasenBlau();
     }
 }

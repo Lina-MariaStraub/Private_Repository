@@ -8,7 +8,7 @@ var L09_Canvas;
             this.x += Math.random() * 4 - 4;
             this.y += Math.random() * 4 - 4;
         };
-        BubbleZittrig.prototype.drawBubblesRandom = function () {
+        BubbleZittrig.prototype.zeichneLuftblasenBlau = function () {
             L09_Canvas.ctx.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(51, 76, 170)"; //dunkelblau
             L09_Canvas.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);

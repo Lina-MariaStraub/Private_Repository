@@ -8,7 +8,7 @@ var L09_Canvas;
             this.x += 0; //auf der x achse keine bewegung
             this.y += -2; //deswegen steigen sie nach oben
         };
-        Blasen.prototype.drawBubble = function () {
+        Blasen.prototype.zeichneLuftblasenWeiss = function () {
             L09_Canvas.ctx.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(255,255,255)";
             L09_Canvas.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
