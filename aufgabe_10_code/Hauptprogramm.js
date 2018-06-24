@@ -12,9 +12,9 @@ var L09_Canvas;
         L09_Canvas.crc2 = canvas.getContext("2d");
         L09_Canvas.ctx = canvas.getContext("2d");
         console.log(L09_Canvas.crc2);
-        //----MIT EINER KLASSE EINEN HINTERGRUND ERSTELLEN--------------------------------
-        var hg = new L09_Canvas.Hintergrund;
-        hg.paint();
+        //----MIT EINER KLASSE EINEN objekte ERSTELLEN--------------------------------
+        var background = new L09_Canvas.objekte;
+        background.paint();
         imgData = L09_Canvas.crc2.getImageData(0, 0, canvas.width, canvas.height); //BILD SPEICHERN
         console.log(imgData); //CONSOLEN AUSGABE
         //----LUFTBLASEN ZITTRIG DUNKELBLAU-------------------------------------------------

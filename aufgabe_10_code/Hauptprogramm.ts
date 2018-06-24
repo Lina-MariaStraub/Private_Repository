@@ -13,9 +13,9 @@ namespace L09_Canvas {
         crc2 = canvas.getContext( "2d" );
         ctx = canvas.getContext( "2d" );
         console.log( crc2 );
-//----MIT EINER KLASSE EINEN HINTERGRUND ERSTELLEN--------------------------------
-        let hg: Hintergrund = new Hintergrund;
-        hg.paint();
+//----MIT EINER KLASSE EINEN objekte ERSTELLEN--------------------------------
+        let background: objekte = new objekte;
+        background.paint();
         imgData = crc2.getImageData( 0, 0, canvas.width, canvas.height ); //BILD SPEICHERN
         console.log( imgData );//CONSOLEN AUSGABE
 //----LUFTBLASEN ZITTRIG DUNKELBLAU-------------------------------------------------

@@ -1,10 +1,10 @@
 var L09_Canvas;
 (function (L09_Canvas) {
-    var Hintergrund = (function () {
-        function Hintergrund() {
+    var objekte = (function () {
+        function objekte() {
         }
-        Hintergrund.prototype.paint = function () {
-            this.drawBackground(260); //Wasser und sand
+        objekte.prototype.paint = function () {
+            this.Background(260); //Wasser und sand
             this.Stein(-190, 450); //Stein links mittig
             this.Kiste(259, 410, 70, 30); //Kiste rechts mittig
             this.Deckel(260, 410); //DeckelSchatztruhe mittig
@@ -15,12 +15,12 @@ var L09_Canvas;
             this.Wasserpflanze5(70, 462);
         };
         //----KISTE-------------------------------------------------------------------------
-        Hintergrund.prototype.Kiste = function (_x, _y, _width, _height) {
+        objekte.prototype.Kiste = function (_x, _y, _width, _height) {
             L09_Canvas.crc2.fillStyle = "rgb(51,20,0)";
             L09_Canvas.crc2.fillRect(_x, _y, _width, _height);
         };
         //----DECKEL-------------------------------------------------------------------------
-        Hintergrund.prototype.Deckel = function (_x, _y) {
+        objekte.prototype.Deckel = function (_x, _y) {
             L09_Canvas.ctx.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(51,20,0)";
             L09_Canvas.ctx.moveTo(_x, _y);
@@ -30,14 +30,14 @@ var L09_Canvas;
             L09_Canvas.crc2.fill();
         };
         //----WASSER UND SAND-------------------------------------------------------------------------
-        Hintergrund.prototype.drawBackground = function (_sandHeight) {
+        objekte.prototype.Background = function (_sandHeight) {
             L09_Canvas.crc2.fillStyle = "rgb(135,  206, 235 )";
             L09_Canvas.crc2.fillRect(0, 0, L09_Canvas.crc2.canvas.width, L09_Canvas.crc2.canvas.height);
             L09_Canvas.crc2.fillStyle = "rgb(255, 228, 196)";
             L09_Canvas.crc2.fillRect(0, L09_Canvas.crc2.canvas.height - _sandHeight, L09_Canvas.crc2.canvas.width, L09_Canvas.crc2.canvas.height);
         };
         //----WASSERPFLANZEN-------------------------------------------------------------------------
-        Hintergrund.prototype.Wasserpflanze1 = function (_x, _y) {
+        objekte.prototype.Wasserpflanze1 = function (_x, _y) {
             L09_Canvas.crc2.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(0, 100, 0)";
             L09_Canvas.crc2.moveTo(_x, _y);
@@ -46,7 +46,7 @@ var L09_Canvas;
             L09_Canvas.crc2.lineTo(_x, _y);
             L09_Canvas.crc2.fill();
         };
-        Hintergrund.prototype.Wasserpflanze2 = function (_x, _y) {
+        objekte.prototype.Wasserpflanze2 = function (_x, _y) {
             L09_Canvas.crc2.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(43, 139, 34)";
             L09_Canvas.crc2.moveTo(_x, _y);
@@ -55,7 +55,7 @@ var L09_Canvas;
             L09_Canvas.crc2.lineTo(_x, _y);
             L09_Canvas.crc2.fill();
         };
-        Hintergrund.prototype.Wasserpflanze3 = function (_x, _y) {
+        objekte.prototype.Wasserpflanze3 = function (_x, _y) {
             L09_Canvas.crc2.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(69, 139, 0)";
             L09_Canvas.crc2.moveTo(_x, _y);
@@ -64,7 +64,7 @@ var L09_Canvas;
             L09_Canvas.crc2.lineTo(_x, _y);
             L09_Canvas.crc2.fill();
         };
-        Hintergrund.prototype.Wasserpflanze4 = function (_x, _y) {
+        objekte.prototype.Wasserpflanze4 = function (_x, _y) {
             L09_Canvas.crc2.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(0, 205, 0)";
             L09_Canvas.crc2.moveTo(_x, _y);
@@ -73,7 +73,7 @@ var L09_Canvas;
             L09_Canvas.crc2.lineTo(_x, _y);
             L09_Canvas.crc2.fill();
         };
-        Hintergrund.prototype.Wasserpflanze5 = function (_x, _y) {
+        objekte.prototype.Wasserpflanze5 = function (_x, _y) {
             L09_Canvas.crc2.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(110, 139, 61)";
             L09_Canvas.crc2.moveTo(_x, _y);
@@ -83,7 +83,7 @@ var L09_Canvas;
             L09_Canvas.crc2.fill();
         };
         //----STEIN-------------------------------------------------------------------------
-        Hintergrund.prototype.Stein = function (_x, _y) {
+        objekte.prototype.Stein = function (_x, _y) {
             L09_Canvas.crc2.beginPath();
             L09_Canvas.crc2.fillStyle = "rgb(64, 64, 64)";
             L09_Canvas.crc2.moveTo(_x, _y);
@@ -100,8 +100,8 @@ var L09_Canvas;
             L09_Canvas.crc2.stroke();
             L09_Canvas.crc2.fill();
         };
-        return Hintergrund;
+        return objekte;
     }());
-    L09_Canvas.Hintergrund = Hintergrund;
+    L09_Canvas.objekte = objekte;
 })(L09_Canvas || (L09_Canvas = {}));
 //# sourceMappingURL=objekte.js.map
