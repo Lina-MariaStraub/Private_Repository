@@ -67,7 +67,6 @@ var Semesteraufgabe;
         } //klammer for-Schleife
     } //Klammer function Rand.Pos.Obj
     //----FUNKTION GEKLICKTEOBJEKTE-----------------------------------------------------------------------------------------------------------
-    //Korrigiert. Wir bekommen die richtige Position des Klicks auf dem Canvas, dadurch das der Browser einen bestimmten Margin, etc. hat 
     function geklickteObjekte(event) {
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
